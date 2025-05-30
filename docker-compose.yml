@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-generateconfig-anyconf
-    entrypoint: sh -c "make start"
     volumes:
       - ./:/code:Z
       - "${STORAGE_DIR}:/code/storage:Z"
@@ -239,6 +238,7 @@ services:
     volumes:
       - "${STORAGE_DIR}:/code/storage:Z"
     command: ["tail", "-f", "/dev/null"]
+    command: sh -c "make start && tail -f /dev/null"
     stop_signal: SIGKILL
     tty: true
     healthcheck:
