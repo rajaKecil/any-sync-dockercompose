@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-generateconfig-anyconf
-    command: sh -c "make start && tail -f /dev/null"  # Keeps container running
+    entrypoint: sh -c "make start"
     volumes:
       - ./:/code:Z
       - "${STORAGE_DIR}:/code/storage:Z"
