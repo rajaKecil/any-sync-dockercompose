@@ -238,7 +238,7 @@ services:
     volumes:
       - "${STORAGE_DIR}:/code/storage:Z"
     command: ["tail", "-f", "/dev/null"]
-    command: sh -c "make start && tail -f /dev/null"
+    entrypoint: sh -c "make start"
     stop_signal: SIGKILL
     tty: true
     healthcheck:
